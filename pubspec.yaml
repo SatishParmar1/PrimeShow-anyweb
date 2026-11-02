@@ -1,0 +1,56 @@
+name: prime
+description: "Primeshows – native Android/iOS app for https://primeshows.org"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_inappwebview: ^6.1.5   # WebView engine (fullscreen, popups, pull-to-refresh, DRM)
+  url_launcher: ^6.3.1           # open external links / tel: / mailto: / whatsapp:
+  connectivity_plus: ^6.1.4      # offline detection + auto reload
+  share_plus: ^11.0.0            # native share sheet
+  app_links: ^6.4.0              # deep links (primeshows.org links open in the app)
+  shared_preferences: ^2.3.3     # saved websites (stored on the device)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/splash.png     # loading screen
+    - assets/icon/logo_mark.png  # Android TV side menu
+
+# ---------------------------------------------------------------------------
+# App icon  →  dart run flutter_launcher_icons
+# ---------------------------------------------------------------------------
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  remove_alpha_ios: true
+  min_sdk_android: 24
+  adaptive_icon_background: "assets/icon/icon_background.png"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+
+# ---------------------------------------------------------------------------
+# Native splash  →  dart run flutter_native_splash:create
+# ---------------------------------------------------------------------------
+flutter_native_splash:
+  color: "#00040A"
+  image: assets/icon/splash.png
+  android_12:
+    color: "#00040A"
+    image: assets/icon/splash_android12.png
+    icon_background_color: "#00040A"
+  web: false
